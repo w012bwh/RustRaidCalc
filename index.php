@@ -6,17 +6,19 @@
         <?php
             session_start();
             #craftGP
-            // $input_num_sheet_doors = "";
-            // $input_num_armored_doors = "";
-            // $input_num_stone_walls = "";
-            // $input_num_sheet_metal_walls = "";
-            // $input_num_armored_walls = "";
 
             $total_explo_sheet_door = 63;
             $total_explo_armored_door = 200;
             $total_explo_garage_door = 150;
+
+
             $total_explo_craftable_for_doors = 32;
             $total_explo_craftable_for_garage_door = 75;
+
+            $total_c4_needed_armored_door = 2;
+            $total_explosives_for_c4 = 20;
+
+
 
             $sulferGP = 20;
             $charcoal = 30;
@@ -57,10 +59,8 @@
 
 
             $input_num_sheet_doors = $_POST['num_of_sheet_doors'];
-            $input_num_sheet_double_doors = $_POST['num_of_sheet_double_doors'];
             $input_num_garage_doors = $_POST['num_of_garage_doors'];
             $input_num_armored_doors = $_POST['num_of_armored_doors'];
-            $input_num_armored_double_doors = $_POST['num_of_armored_double_doors'];
             $input_num_stone_walls = $_POST['num_of_stone_walls'];
             $input_num_sheet_metal_walls = $_POST['num_of_sheet_metal_walls'];
             $input_num_armored_walls = $_POST['num_of_armored_walls'];
@@ -81,57 +81,191 @@
             $total_gunpowder_for_ammo = $gunPowderForAmmo * $total_explo_craftable_for_doors * $input_num_sheet_doors;
             $total_ammo_needed = $total_explo_sheet_door * $input_num_sheet_doors;
 
-            echo "For ", $input_num_sheet_doors, " Sheet Metal doors:";
-            echo "<br>";
-            echo "<br>";
-            echo "total ammo needed: ", $total_ammo_needed;
-            echo "<br>";
-            echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_metal_door;
-            echo "<br>";
-            echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_metal_door;
-            echo "<br>";
-            echo "total metal frags: ", $total_metal_metal_doors;
-            echo "<br>";
-            echo "total gun powder: ", $total_gunpowder_for_ammo;
-            echo "<br>";
-            echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
-            echo "<br>";
-            echo "total sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
 
+
+
+
+
+        echo "<form method='post' action=''>";
+          echo "<h1>Welcome to the Rust Raid Caclculator!</h1>";
+          echo "  <h2>Number of sheet metal doors</h2>";
+          echo "<input type='text' name='num_of_sheet_doors'><br><br>";
+
+
+
+          echo "For ", $input_num_sheet_doors, " Sheet Metal doors:";
+          echo "<br>";
+          echo "<br>";
+          echo "total ammo needed: ", $total_ammo_needed;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_metal_doors;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_ammo;
+          echo "<br>";
+          echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+
+
+
+
+
+          #garage door calculations
+
+          $total_ammo_needed_garage_door = $input_num_garage_doors * $total_explo_garage_door;
+          $total_sulfer_needed_for_gp_garage_door = 2 * $sulferGP * $total_explo_craftable_for_garage_door * $input_num_garage_doors;
+          $total_charcoal_needed_for_gp_garage_door = 2 * $charcoal * $total_explo_craftable_for_garage_door * $input_num_garage_doors;
+          $total_metal_metal_garage_doors = $metalFrags * $total_explo_craftable_for_garage_door * $input_num_garage_doors;
+          $total_sulfer_for_ammo_garage = $sulferForCrafting * $total_explo_craftable_for_garage_door * $input_num_garage_doors;
+          $total_gunpowder_for_ammo_garage = $gunPowderForAmmo * $total_explo_craftable_for_garage_door * $input_num_garage_doors;
+
+
+
+          echo "<h2>Number of sheet garage doors</h2>";
+          echo "<input type='text' name='num_of_garage_doors'><br><br>";
+
+
+          echo "For ", $input_num_garage_doors, " garage door(s):";
+          echo "<br>";
+          echo "<br>";
+          echo "total ammo needed: ", $total_ammo_needed_garage_door;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_garage_door;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_garage_door;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_metal_garage_doors;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_ammo_garage;
+          echo "<br>";
+          echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo_garage;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_needed_for_gp_garage_door + $total_sulfer_for_ammo_garage;
+
+
+          #c4 calculations
+          $total_c4_needed_armored_door = $total_c4_needed_armored_door * $input_num_armored_doors;
+
+          $total_sulfer_needed_for_explosives = 2 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_charcoal_needed_for_explosives = 10 * $charcoal * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_metal_for_explosives = $metalFrags * 2 * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_sulfer_for_c4 = 2 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_gunpowder_for_c4 = 2 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_explosives_needed = 2 * $total_explosives_for_c4 * $input_num_armored_doors;
+          $total_tech_trash = 2 * $techTrash * $input_num_armored_doors;
+          $total_cloth = 2 * $cloth * $input_num_armored_doors;
+
+          echo "<h2>Number of armored doors</h2>";
+          echo "<input type='text' name='num_of_armored_doors'><br><br>";
+
+          echo "For ", $input_num_armored_doors, " armored doors:";
+          echo "<br>";
+          echo "<br>";
+          echo "total explosives needed: ", $total_explosives_needed;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_explosives;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_explosives;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_for_explosives;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_c4;
+          echo "<br>";
+          echo "total sulfer to craft explosives: ", $total_sulfer_for_c4;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_needed_for_explosives + $total_sulfer_for_c4;
+          echo "<br>";
+          echo "total techtrash: ", $total_tech_trash;
+          echo "<br>";
+          echo "total cloth: ", $total_cloth;
+
+
+
+
+
+          echo "<h2>Number of sheet stone walls</h2>";
+          echo "<input type='text' name='num_of_stone_walls'><br><br>";
+
+          echo "For ", $input_num_sheet_doors, " Sheet Metal doors:";
+          echo "<br>";
+          echo "<br>";
+          echo "total ammo needed: ", $total_ammo_needed;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_metal_doors;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_ammo;
+          echo "<br>";
+          echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+
+
+
+
+
+
+          echo "<h2>Number of sheet metal walls</h2>";
+          echo "<input type='text' name='num_of_sheet_metal_walls'><br><br>";
+
+          echo "For ", $input_num_sheet_doors, " Sheet Metal doors:";
+          echo "<br>";
+          echo "<br>";
+          echo "total ammo needed: ", $total_ammo_needed;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_metal_doors;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_ammo;
+          echo "<br>";
+          echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+
+
+
+
+
+
+          echo "<h2>Number of armored walls</h2>";
+          echo "<input type='text' name='num_of_armored_walls'><br><br>";
+
+
+          echo "For ", $input_num_sheet_doors, " Sheet Metal doors:";
+          echo "<br>";
+          echo "<br>";
+          echo "total ammo needed: ", $total_ammo_needed;
+          echo "<br>";
+          echo "total sulfer for GP: ", $total_sulfer_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total charcoal for GP: ", $total_charcoal_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "total metal frags: ", $total_metal_metal_doors;
+          echo "<br>";
+          echo "total gun powder: ", $total_gunpowder_for_ammo;
+          echo "<br>";
+          echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+          echo "<br>";
+          echo "total sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+          echo "<br>";
+          echo "<br>";
+
+          echo "<input type='submit'>";
+        echo "</form>";
 
 
         ?>
 
-
-
-
-        <form method="post" action="">
-          <h1>Welcome to the Rust Raid Caclculator!</h1>
-          <h2>Number of sheet metal doors</h2>
-          <input type="text" name="num_of_sheet_doors"><br><br>
-
-          <h2>Number of sheet metal double doors</h2>
-          <input type="text" name="num_of_sheet_double_doors"><br><br>
-
-          <h2>Number of sheet garage doors</h2>
-          <input type="text" name="num_of_garage_doors"><br><br>
-
-          <h2>Number of sheet armored doors</h2>
-          <input type="text" name="num_of_armored_doors"><br><br>
-
-          <h2>Number of sheet armored double doors</h2>
-          <input type="text" name="num_of_armored_double_doors"><br><br>
-
-          <h2>Number of sheet stone walls</h2>
-          <input type="text" name="num_of_stone_walls"><br><br>
-
-          <h2>Number of sheet metal walls</h2>
-          <input type="text" name="num_of_sheet_metal_walls"><br><br>
-
-          <h2>Number of armored walls</h2>
-          <input type="text" name="num_of_armored_walls"><br><br>
-          <input type="submit">
-        </form>
 
     </body>
 </html>
