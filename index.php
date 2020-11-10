@@ -14,7 +14,9 @@
 
             $total_explo_sheet_door = 63;
             $total_explo_armored_door = 200;
+            $total_explo_garage_door = 150;
             $total_explo_craftable_for_doors = 32;
+            $total_explo_craftable_for_garage_door = 75;
 
             $sulferGP = 20;
             $charcoal = 30;
@@ -72,10 +74,9 @@
             #sheet metal door calculations
             #bug: theres an extra round crafted, so minus one from from the userinput to get total rounds made
 
-
-            $total_sulfer_needed_for_gp_metal_door = $sulferGP * $total_explo_craftable_for_doors * $input_num_sheet_doors;
-            $total_charcoal_needed_for_gp_metal_door = $charcoal * $total_explo_craftable_for_doors * $input_num_sheet_doors;
-            $total_metal_metal_doors = $metalFrags*$total_explo_craftable_for_doors * $input_num_sheet_doors;
+            $total_sulfer_needed_for_gp_metal_door = 2 * $sulferGP * $total_explo_craftable_for_doors * $input_num_sheet_doors;
+            $total_charcoal_needed_for_gp_metal_door = 2 * $charcoal * $total_explo_craftable_for_doors * $input_num_sheet_doors;
+            $total_metal_metal_doors = $metalFrags * $total_explo_craftable_for_doors * $input_num_sheet_doors;
             $total_sulfer_for_ammo = $sulferForCrafting * $total_explo_craftable_for_doors * $input_num_sheet_doors;
             $total_gunpowder_for_ammo = $gunPowderForAmmo * $total_explo_craftable_for_doors * $input_num_sheet_doors;
             $total_ammo_needed = $total_explo_sheet_door * $input_num_sheet_doors;
