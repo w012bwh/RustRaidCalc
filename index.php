@@ -279,7 +279,7 @@
           echo "<input type='text' name='num_of_armored_walls'><br><br>";
 
 
-          echo "For ", $input_num_armored_walls, " stone walls:";
+          echo "For ", $input_num_armored_walls, " armored walls:";
           echo "<br>";
           echo "<br>";
           echo "total c4 needed: ", $total_c4_needed_sheet_armored_wall;
