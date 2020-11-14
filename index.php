@@ -188,10 +188,10 @@
 
           $total_c4_needed_stone_wall = $total_c4_needed_armored_door_stone_wall * $input_num_stone_walls;
 
-          $total_sulfer_needed_for_explosives = 2 * $sulferGP * $total_explosives_for_c4 * $input_num_stone_walls;
+          $total_sulfer_needed_for_explosives = 4 * $sulferGP * $total_explosives_for_c4 * $input_num_stone_walls;
           $total_charcoal_needed_for_explosives = 100 * $total_explosives_for_c4 * $input_num_stone_walls;
           $total_metal_for_explosives = $metalFrags * 2 * $total_explosives_for_c4 * $input_num_stone_walls;
-          $total_sulfer_for_c4 = 2 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_stone_walls;
+          $total_sulfer_for_c4 = 4 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_stone_walls;
           $total_gunpowder_for_c4 = 2 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_stone_walls;
           $total_explosives_needed = 2 * $total_explosives_for_c4 * $input_num_stone_walls;
           $total_tech_trash = 2 * $techTrash * $input_num_stone_walls;
