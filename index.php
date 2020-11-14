@@ -226,10 +226,10 @@
 
           $total_c4_needed_stone_wall = $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
 
-          $total_sulfer_needed_for_explosives = 4 * $sulferGP * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
+          $total_sulfer_needed_for_explosives = 8 * $sulferGP * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
           $total_charcoal_needed_for_explosives = 200 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
           $total_metal_for_explosives = $metalFrags * 4 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_sulfer_for_c4 = 4 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
+          $total_sulfer_for_c4 = 8 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
           $total_gunpowder_for_c4 = 4 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
           $total_explosives_needed = 4 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
           $total_tech_trash = 4 * $techTrash * $input_num_sheet_metal_walls;
@@ -265,10 +265,10 @@
 
           $total_c4_needed_sheet_armored_wall = $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
 
-          $total_sulfer_needed_for_explosives = 8 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_walls;
+          $total_sulfer_needed_for_explosives = 16 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_walls;
           $total_charcoal_needed_for_explosives = 400 * $total_explosives_for_c4 * $input_num_armored_walls;
           $total_metal_for_explosives = $metalFrags * 8 * $total_explosives_for_c4 * $input_num_armored_walls;
-          $total_sulfer_for_c4 = 8 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_walls;
+          $total_sulfer_for_c4 = 16 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_walls;
           $total_gunpowder_for_c4 = 8 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_armored_walls;
           $total_explosives_needed = 8 * $total_explosives_for_c4 * $input_num_armored_walls;
           $total_tech_trash = 8 * $techTrash * $input_num_armored_walls;
