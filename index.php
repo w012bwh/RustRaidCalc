@@ -77,7 +77,7 @@ td, th {
 
         echo "<form method='post' action=''>";
 
-          echo "<table cellpadding='20' style=100%>";
+          echo "<table align='center' cellpadding='20' style=100%>";
           echo "<tr>";
 
             echo "<td>";
@@ -131,12 +131,15 @@ td, th {
 
         echo "</table>";
 
+
+        echo "<div style='text-align:center;'>";
         echo "<input type='submit' value='Caclculate'>";
+
+        echo "</div>";
+
         echo "</form>";
 
-
-
-          echo "<table cellpadding='20' style=100%>";
+          echo "<table align='center' cellpadding='20' style=100%>";
           echo "<tr>";
 
             echo "<th></th>";
