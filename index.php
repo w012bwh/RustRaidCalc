@@ -1,4 +1,21 @@
 <html>
+
+<style>
+body {
+ background-image: url('pictures/rust.png');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+}
+
+
+td, th {
+    color: #fff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+</style>
+
+
     <head>
     <title>Rust Raid Calculator</title>
     <h1>Welcome to the Rust Raid Caclculator!</h1>
@@ -114,7 +131,7 @@
 
         echo "</table>";
 
-        echo "<input type='submit'>";
+        echo "<input type='submit' value='Caclculate'>";
         echo "</form>";
 
 
