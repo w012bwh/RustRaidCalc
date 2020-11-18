@@ -207,39 +207,43 @@
 
 
             #c4 calculations for sheet metal door
-            $total_c4_needed_armored_door = $total_c4_needed_armored_door_stone_wall * $input_num_armored_doors;
+            $total_c4_needed_metal_door = $total_c4_needed_sheet_door * $total_c4_needed_sheet_door * $input_num_sheet_doors;
+            $total_explosives_needed_metal_door = $total_explosives_for_c4  * $total_c4_needed_sheet_door * $input_num_sheet_doors;
 
-            $total_sulfer_needed_for_explosives = 2 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_charcoal_needed_for_explosives = 100 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_metal_for_explosives = $metalFrags * 2 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_sulfer_for_c4 = 2 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_gunpowder_for_c4 = 2 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_explosives_needed = 2 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_tech_trash = 2 * $techTrash * $input_num_armored_doors;
-            $total_cloth = 2 * $cloth * $input_num_armored_doors;
+            $total_sulfer_needed_for_explosives_metal_door = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_door * $input_num_sheet_doors;
+            $total_sulfer_needed_for_gp_metal_door = 20 * 5 * $total_explosives_for_c4 * $total_c4_needed_sheet_door * $input_num_sheet_doors;
+            $total_charcoal_needed_for_explosives_metal_door = 30 * 5 * $total_c4_needed_sheet_door * $total_explosives_for_c4 * $input_num_sheet_doors;
+            $total_metal_for_explosives_sheet_door_metal_door = 10 * $total_c4_needed_sheet_door * $total_explosives_for_c4 * $input_num_sheet_doors;
+            $total_sulfer_for_c4_metal_door = 10 * $total_c4_needed_sheet_door * $total_explosives_for_c4 * $input_num_sheet_doors;
+            $total_gunpowder_for_c4_metal_door = 50 * $total_c4_needed_sheet_door * $total_explosives_for_c4 * $input_num_sheet_doors;
+            $total_tech_trash_metal_door =  2 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_door * $input_num_sheet_doors;
+            $total_cloth_metal_door = 5 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_door * $input_num_sheet_doors;
+            $total_lowgrade_metal_door = 3 * $total_c4_needed_sheet_door * $total_explosives_for_c4 * $input_num_sheet_doors;
 
 
             echo "<td>";
 
-              echo "C4 needed: ", $total_ammo_needed;
+              echo "C4 needed: ", $total_c4_needed_metal_door;
               echo "<br>";
-              echo "Explosives needed: ", $total_ammo_needed;
+              echo "Explosives needed: ", $total_explosives_needed_metal_door;
               echo "<br>";
               echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
               echo "<br>";
-              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_metal_door;
               echo "<br>";
-              echo "Metal frags: ", $total_metal_metal_doors;
+              echo "Gun powder: ", $total_gunpowder_for_c4_metal_door;
               echo "<br>";
-              echo "Low Grade: ", $total_metal_metal_doors;
+              echo "Metal frags: ", $total_metal_for_explosives_sheet_door_metal_door;
               echo "<br>";
-              echo "Low Grade: ", $total_metal_metal_doors;
+              echo "Sulfer for Explosives: ", $total_sulfer_for_c4_metal_door;
               echo "<br>";
-              echo "Gun powder: ", $total_gunpowder_for_ammo;
+              echo "Low Grade: ", $total_lowgrade_metal_door;
               echo "<br>";
-              echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+              echo "Cloth: ", $total_cloth_metal_door;
               echo "<br>";
-              echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+              echo "Tech trash: ", $total_tech_trash_metal_door;
+              echo "<br>";
+              echo "total Sulfer: ", $total_sulfer_needed_for_gp_metal_door + $total_sulfer_for_c4_metal_door;
 
             echo "</td>";
 
@@ -315,25 +319,42 @@
 
           echo "</td>";
 
+          $total_c4_needed_garage_door = $total_c4_needed_sheet_door * $total_c4_needed_garage_door * $input_num_garage_doors;
+          $total_explosives_needed_garage_door = $total_explosives_for_c4 * $total_c4_needed_garage_door * $input_num_garage_doors;
+
+          $total_sulfer_needed_for_explosives_garage_door = 10 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_sulfer_needed_for_gp_garage_door = 20 * 5 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_charcoal_needed_for_explosives_garage_door = 30 * 5 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_metal_for_explosives_sheet_door_garage_door = 10 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_sulfer_for_c4_garage_door = 10 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_gunpowder_for_c4_garage_door = 50 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+          $total_tech_trash_garage_door =  2 * $total_c4_needed_garage_door * $total_c4_needed_sheet_door * $input_num_garage_doors;
+          $total_cloth_garage_door = 5 * $total_c4_needed_garage_door * $total_c4_needed_sheet_door * $input_num_garage_doors;
+          $total_lowgrade_garage_door = 3 * $total_c4_needed_garage_door * $total_explosives_for_c4 * $input_num_garage_doors;
+
           echo "<td>";
 
-            echo "C4 needed: ", $total_ammo_needed;
+            echo "C4 needed: ", $total_c4_needed_garage_door;
             echo "<br>";
-            echo "Explosives needed: ", $total_ammo_needed;
+            echo "Explosives needed: ", $total_explosives_needed_garage_door;
             echo "<br>";
-            echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
+            echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_garage_door;
             echo "<br>";
-            echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+            echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_garage_door;
             echo "<br>";
-            echo "Metal frags: ", $total_metal_metal_doors;
+            echo "Gun powder: ", $total_gunpowder_for_c4_garage_door;
             echo "<br>";
-            echo "Low Grade: ", $total_metal_metal_doors;
+            echo "Metal frags: ", $total_metal_for_explosives_sheet_door_garage_door;
             echo "<br>";
-            echo "Gun powder: ", $total_gunpowder_for_ammo;
+            echo "Sulfer for Explosives: ", $total_sulfer_for_c4_garage_door;
             echo "<br>";
-            echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+            echo "Low Grade: ", $total_lowgrade_garage_door;
             echo "<br>";
-            echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+            echo "Cloth: ", $total_cloth_garage_door;
+            echo "<br>";
+            echo "Tech trash: ", $total_tech_trash_garage_door;
+            echo "<br>";
+            echo "total Sulfer: ", $total_sulfer_needed_for_gp_garage_door + $total_sulfer_for_c4_garage_door;
 
           echo "</td>";
 
@@ -407,37 +428,43 @@
             echo "</td>";
 
             #c4 calculations
-            $total_c4_needed_armored_door = $total_c4_needed_armored_door_stone_wall * $input_num_armored_doors;
+            $total_c4_needed_armored_door = $total_c4_needed_sheet_door * $total_c4_needed_armored_door * $input_num_armored_doors;
+            $total_explosives_needed_armored_door = $total_explosives_for_c4 * $total_c4_needed_armored_door * $input_num_armored_doors;
 
-            $total_sulfer_needed_for_explosives = 2 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_charcoal_needed_for_explosives = 100 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_metal_for_explosives = $metalFrags * 2 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_sulfer_for_c4 = 2 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_gunpowder_for_c4 = 2 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_explosives_needed = 2 * $total_explosives_for_c4 * $input_num_armored_doors;
-            $total_tech_trash = 2 * $techTrash * $input_num_armored_doors;
-            $total_cloth = 2 * $cloth * $input_num_armored_doors;
+            $total_sulfer_needed_for_explosives_armored_door = 10 * $total_explosives_for_c4 * $total_c4_needed_armored_door * $input_num_armored_doors;
+            $total_sulfer_needed_for_gp_armored_door = 20 * 5 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
+            $total_charcoal_needed_for_explosives_armored_door = 30 * 5 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
+            $total_metal_for_explosives_armored_door = 10 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
+            $total_sulfer_for_c4_armored_door = 10 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
+            $total_gunpowder_for_c4_armored_door = 50 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
+            $total_tech_trash_armored_door =  2 * $total_c4_needed_armored_door * $total_c4_needed_sheet_door * $input_num_armored_doors;
+            $total_cloth_armored_door = 5 * $total_c4_needed_armored_door * $total_c4_needed_sheet_door * $input_num_armored_doors;
+            $total_lowgrade_armored_door = 3 * $total_c4_needed_armored_door * $total_explosives_for_c4 * $input_num_armored_doors;
 
 
             echo "<td>";
 
-              echo "C4 needed: ", $total_ammo_needed;
+              echo "C4 needed: ", $total_c4_needed_armored_door;
               echo "<br>";
-              echo "Explosives needed: ", $total_ammo_needed;
+              echo "Explosives needed: ", $total_explosives_needed_armored_door;
               echo "<br>";
-              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
+              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_armored_door;
               echo "<br>";
-              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_armored_door;
               echo "<br>";
-              echo "Metal frags: ", $total_metal_metal_doors;
+              echo "Gun powder: ", $total_gunpowder_for_c4_metal_door;
               echo "<br>";
-              echo "Low Grade: ", $total_metal_metal_doors;
+              echo "Metal frags: ", $total_metal_for_explosives_armored_door;
               echo "<br>";
-              echo "Gun powder: ", $total_gunpowder_for_ammo;
+              echo "Sulfer for Explosives: ", $total_sulfer_needed_for_explosives_armored_door;
               echo "<br>";
-              echo "Sulfer to craft ammo: ", $total_sulfer_for_ammo;
+              echo "Low Grade: ", $total_lowgrade_armored_door;
               echo "<br>";
-              echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+              echo "Cloth: ", $total_cloth_armored_door;
+              echo "<br>";
+              echo "Tech trash: ", $total_tech_trash_armored_door;
+              echo "<br>";
+              echo "total Sulfer: ", $total_sulfer_needed_for_gp_metal_door + $total_sulfer_needed_for_explosives_armored_door;
 
             echo "</td>";
 
@@ -510,37 +537,43 @@
 
             echo "</td>";
 
-            $total_c4_needed_stone_wall = $total_c4_needed_armored_door_stone_wall * $input_num_stone_walls;
+            $total_c4_needed_stone_wall = $total_c4_needed_sheet_door * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_explosives_needed_stone_wall = $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
 
-            $total_sulfer_needed_for_explosives = 4 * $sulferGP * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_charcoal_needed_for_explosives = 100 * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_metal_for_explosives = $metalFrags * 2 * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_sulfer_for_c4 = 4 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_gunpowder_for_c4 = 2 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_explosives_needed = 2 * $total_explosives_for_c4 * $input_num_stone_walls;
-            $total_tech_trash = 2 * $techTrash * $input_num_stone_walls;
-            $total_cloth = 2 * $cloth * $input_num_stone_walls;
+            $total_sulfer_needed_for_explosives_stone_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_sulfer_needed_for_gp_stone_wall = 20 * 5 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_charcoal_needed_for_explosives_stone_wall = 30 * 5 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_metal_for_explosives_sheet_door_stone_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_sulfer_for_c4_stone_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_gunpowder_for_c4_stone_wall = 50 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_tech_trash_stone_wall =  2 * $total_c4_needed_sheet_door * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_cloth_stone_wall = 5 * $total_c4_needed_sheet_door * $total_c4_needed_stone_wall * $input_num_stone_walls;
+            $total_lowgrade_stone_wall = 3 * $total_explosives_for_c4 * $total_c4_needed_stone_wall * $input_num_stone_walls;
 
 
             echo "<td>";
 
-              echo "C4 needed: ", $total_ammo_needed;
+              echo "C4 needed: ", $total_c4_needed_stone_wall;
               echo "<br>";
-              echo "Explosives needed: ", $total_ammo_needed;
+              echo "Explosives needed: ", $total_explosives_needed_stone_wall;
               echo "<br>";
-              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
+              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_stone_wall;
               echo "<br>";
-              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_stone_wall;
               echo "<br>";
-              echo "Metal frags: ", $total_metal_metal_doors;
+              echo "Gun powder: ", $total_gunpowder_for_c4_stone_wall;
               echo "<br>";
-              echo "Low Grade: ", $total_metal_metal_doors;
+              echo "Metal frags: ", $total_metal_for_explosives_sheet_door_stone_wall;
               echo "<br>";
-              echo "Gun powder: ", $total_gunpowder_for_ammo;
+              echo "Sulfer for Explosives: ", $total_sulfer_needed_for_explosives_stone_wall;
               echo "<br>";
-              echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+              echo "Low Grade: ", $total_lowgrade_stone_wall;
               echo "<br>";
-              echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+              echo "Cloth: ", $total_cloth_stone_wall;
+              echo "<br>";
+              echo "Tech trash: ", $total_tech_trash_stone_wall;
+              echo "<br>";
+              echo "total Sulfer: ", $total_sulfer_needed_for_explosives_stone_wall + $total_sulfer_needed_for_gp_stone_wall;
 
             echo "</td>";
 
@@ -587,8 +620,8 @@
           $total_explosives_needed_sheet_wall = 80 * $input_num_sheet_metal_walls;
           $total_pipes_sheet_wall = 2 * 8 * $input_num_sheet_metal_walls;
           $total_lowgrade_explosives_sheet_wall = 3 * 80 * $input_num_sheet_metal_walls;
-          $total_charcoal_to_craft_rockets_sheet_wall = 30 * 15 * $total_rockets_sheet_wall * $input_num_sheet_walls;
-          $total_sulfer_to_craft_rockets_sheet_wall = 20 * 15 * $total_rockets_sheet_wall * $input_num_sheet_walls;
+          $total_charcoal_to_craft_rockets_sheet_wall = 30 * 15 * $total_rockets_sheet_wall * $input_num_sheet_metal_walls;
+          $total_sulfer_to_craft_rockets_sheet_wall = 20 * 15 * $total_rockets_sheet_wall * $input_num_sheet_metal_walls;
 
           echo "<td>";
 
@@ -617,39 +650,47 @@
           echo "</td>";
 
 
-          $total_c4_needed_stone_wall = $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_c4_needed_sheet_wall = $total_c4_needed_sheet_door * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_explosives_needed_sheet_wall = $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
 
-          $total_sulfer_needed_for_explosives = 8 * $sulferGP * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_charcoal_needed_for_explosives = 200 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_metal_for_explosives = $metalFrags * 4 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_sulfer_for_c4 = 8 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_gunpowder_for_c4 = 4 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_explosives_needed = 4 * $total_explosives_for_c4 * $input_num_sheet_metal_walls;
-          $total_tech_trash = 4 * $techTrash * $input_num_sheet_metal_walls;
-          $total_cloth = 4 * $cloth * $input_num_sheet_metal_walls;
+          $total_sulfer_needed_for_explosives_sheet_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_sulfer_needed_for_gp_sheet_wall = 20 * 5 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_charcoal_needed_for_explosives_sheet_wall = 30 * 5 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_metal_for_explosives_sheet_door_sheet_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_sulfer_for_c4_sheet_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_gunpowder_for_c4_sheet_wall = 50 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_tech_trash_sheet_wall =  2 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_cloth_sheet_wall = 5 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+          $total_lowgrade_sheet_wall = 3 * $total_explosives_for_c4 * $total_c4_needed_sheet_metal_wall * $input_num_sheet_metal_walls;
+
 
 
           echo "<td>";
 
-            echo "C4 needed: ", $total_ammo_needed;
+            echo "C4 needed: ", $total_c4_needed_sheet_wall;
             echo "<br>";
-            echo "Explosives needed: ", $total_ammo_needed;
+            echo "Explosives needed: ", $total_explosives_needed_sheet_wall;
             echo "<br>";
-            echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
+            echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_sheet_wall;
             echo "<br>";
-            echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+            echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_sheet_wall;
             echo "<br>";
-            echo "Metal frags: ", $total_metal_metal_doors;
+            echo "Gun powder: ", $total_gunpowder_for_c4_sheet_wall;
             echo "<br>";
-            echo "Low Grade: ", $total_metal_metal_doors;
+            echo "Metal frags: ", $total_metal_for_explosives_sheet_door_sheet_wall;
             echo "<br>";
-            echo "Gun powder: ", $total_gunpowder_for_ammo;
+            echo "Sulfer for Explosives: ", $total_sulfer_for_c4_sheet_wall;
             echo "<br>";
-            echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+            echo "Low Grade: ", $total_lowgrade_sheet_wall;
             echo "<br>";
-            echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+            echo "Cloth: ", $total_cloth_sheet_wall;
+            echo "<br>";
+            echo "Tech trash: ", $total_tech_trash_sheet_wall;
+            echo "<br>";
+            echo "total Sulfer: ", $total_sulfer_for_c4_sheet_wall + $total_sulfer_needed_for_gp_sheet_wall;
 
           echo "</td>";
+
         echo "</tr>";
 
 
@@ -723,38 +764,42 @@
             echo "</td>";
 
 
-            $total_c4_needed_sheet_armored_wall = $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_c4_needed_armored_wall = $total_c4_needed_sheet_door * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_explosives_needed_armored_wall = $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
 
-            $total_sulfer_needed_for_explosives = 16 * $sulferGP * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_charcoal_needed_for_explosives = 400 * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_metal_for_explosives = $metalFrags * 8 * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_sulfer_for_c4 = 16 * $sulferForCrafting * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_gunpowder_for_c4 = 8 * $gunPowderForExplosives * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_explosives_needed = 8 * $total_explosives_for_c4 * $input_num_armored_walls;
-            $total_tech_trash = 8 * $techTrash * $input_num_armored_walls;
-            $total_cloth = 8 * $cloth * $input_num_armored_walls;
-
-
+            $total_sulfer_needed_for_explosives_armored_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_sulfer_needed_for_gp_armored_wall = 20 * 5 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_charcoal_needed_for_explosives_armored_wall = 30 * 5 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_metal_for_explosives_sheet_door_armored_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_sulfer_for_c4_armored_wall = 10 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_gunpowder_for_c4_armored_wall = 50 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_tech_trash_armored_wall =  2 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_cloth_armored_wall = 5 * $total_c4_needed_sheet_door * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
+            $total_lowgrade_armored_wall = 3 * $total_explosives_for_c4 * $total_c4_needed_sheet_armored_wall * $input_num_armored_walls;
 
             echo "<td>";
 
-              echo "C4 needed: ", $total_ammo_needed;
+              echo "C4 needed: ", $total_c4_needed_armored_wall;
               echo "<br>";
-              echo "Explosives needed: ", $total_ammo_needed;
+              echo "Explosives needed: ", $total_explosives_needed_armored_wall;
               echo "<br>";
-              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_metal_door;
+              echo "Sulfer for Gun Powder: ", $total_sulfer_needed_for_gp_armored_wall;
               echo "<br>";
-              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_gp_metal_door;
+              echo "Charcoal for Gun Powder: ", $total_charcoal_needed_for_explosives_armored_wall;
               echo "<br>";
-              echo "Metal frags: ", $total_metal_metal_doors;
+              echo "Gun powder: ", $total_gunpowder_for_c4_armored_wall;
               echo "<br>";
-              echo "Low Grade: ", $total_metal_metal_doors;
+              echo "Metal frags: ", $total_metal_for_explosives_sheet_door_armored_wall;
               echo "<br>";
-              echo "Gun powder: ", $total_gunpowder_for_ammo;
+              echo "Sulfer for Explosives: ", $total_sulfer_needed_for_explosives_armored_wall;
               echo "<br>";
-              echo "total sulfer to craft ammo: ", $total_sulfer_for_ammo;
+              echo "Low Grade: ", $total_lowgrade_armored_wall;
               echo "<br>";
-              echo "Sulfer total: ", $total_sulfer_for_ammo + $total_sulfer_needed_for_gp_metal_door;
+              echo "Cloth: ", $total_cloth_armored_wall;
+              echo "<br>";
+              echo "Tech trash: ", $total_tech_trash_armored_wall;
+              echo "<br>";
+              echo "total Sulfer: ", $total_sulfer_needed_for_explosives_armored_wall + $total_sulfer_needed_for_gp_armored_wall;
 
             echo "</td>";
 
