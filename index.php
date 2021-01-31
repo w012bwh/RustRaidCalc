@@ -1,11 +1,39 @@
 <html>
 
+<link rel="icon" type="image/png" href="pictures/favicon.jpg"/>
+
+<script>
+  function show1() {
+      document.getElementById("table1").style.display="none";
+      document.getElementById("table2").style.display="block";
+}
+function show2() {
+    document.getElementById("table2").style.display="none";
+    document.getElementById("table1").style.display="block";
+}
+
+
+
+</script>
+
+
+
 <style>
+
+/* #table1 {
+  display: none;
+
+} */
+
 body {
  background-image: url('pictures/rust.png');
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-size: cover;
+}
+
+button {
+  align: 'center';
 }
 
 
@@ -74,8 +102,22 @@ td, th {
             $input_num_sheet_metal_walls = $_POST['num_of_sheet_metal_walls'];
             $input_num_armored_walls = $_POST['num_of_armored_walls'];
 
+            $input_num_explosive_ammo = $_POST['num_of_explosive_ammo'];
+            $input_num_of_rockets = $_POST['num_of_rockets'];
+            $input_num_of_c4 = $_POST['num_of_c4'];
 
-        echo "<form method='post' action=''>";
+
+        echo "<div align='center'>";
+
+            #add a page to calc by resources
+            echo "<button onclick='show2()'>By Walls/Doors</button>";
+            echo "<button onclick='show1()'>By Materials</button>";
+        echo "</div>";
+
+
+        echo "<div id='table1'>";
+
+        echo "<form method='post' action='' id='form1'>";
 
           echo "<table align='center' cellpadding='20' style=100%>";
           echo "<tr>";
@@ -133,7 +175,7 @@ td, th {
 
 
         echo "<div style='text-align:center;'>";
-        echo "<input type='submit' value='Caclculate'>";
+        echo "<input type='submit' onclick='show1()' form='form1' value='Caclculate'>";
 
         echo "</div>";
 
@@ -826,6 +868,134 @@ td, th {
           echo "</tr>";
 
           echo "</table>";
+
+        echo "</div>";
+
+
+
+        echo "<div id='table2'>";
+
+                echo "<form method='post' action='' id='form2'>";
+
+                  echo "<table align='center' cellpadding='20' style=100%>";
+                  echo "<tr>";
+
+                    echo "<td>";
+
+                      echo "<h3>Explosive Ammo</h3>";
+                      echo "<input type='text' name='num_of_explosive_ammo'><br><br>";
+
+                    echo "</td>";
+
+                    echo "<td>";
+
+                      echo "<h3>Rockets</h3>";
+                      echo "<input type='text' name='num_of_rockets'><br><br>";
+
+                    echo "</td>";
+
+                    echo "<td>";
+
+                      echo "<h3>C4</h3>";
+                      echo "<input type='text' name='num_of_c4'><br><br>";
+
+                    echo "</td>";
+
+                  echo "</tr>";
+
+                echo "</table>";
+
+
+                // $input_num_explosive_ammo
+                // $input_num_of_rockets
+                // $input_num_of_c4
+
+
+                $sulfer_ammo = 10 * $input_num_explosive_ammo;
+
+                $sulfer_gp = 0;
+
+
+                $total_sulfer = $sulfer_ammo + $sulfer_gp;
+
+
+                echo "<div style='text-align:center;'>";
+                echo "<input type='submit' onclick='show2()' form='form2' value='Caclculate'>";
+
+                echo "</div>";
+
+                echo "</form>";
+
+                  echo "<table align='center' cellpadding='20' style=100%>";
+                  echo "<tr>";
+
+                      echo "<td>Sulfer</td>";
+                      echo "<td>$sulfer_ammo</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Charcoal</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Gun Powder</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+
+                  echo "<tr>";
+
+                      echo "<td>Metal Frags</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+
+                  echo "<tr>";
+
+                      echo "<td>Low Grade Fuel</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Cloth</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Tech Trash</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Pipes</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+                  echo "<tr>";
+
+                      echo "<td>Explosives</td>";
+                      echo "<td>test</td>";
+
+                  echo "</tr>";
+
+          echo "</table>";
+
+        echo "</div>";
+
 
         ?>
 
