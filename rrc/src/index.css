@@ -1,0 +1,16 @@
+body {
+ background-image: url('/public/rust.png');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+}
+
+h1, h2 {
+
+ align: 'center';
+
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
